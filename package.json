@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@huddle01/react": "^1.0.0-alpha.58",
+    "@huddle01/server-sdk": "^1.0.0-alpha.25",
     "@openzeppelin/contracts": "^4.7.3",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",

@@ -13,6 +13,7 @@ import Marketplace from './components/Marketplace';
 import Profile from './components/Profile';
 import NFTPage from './components/NFTpage';
 import CreateClassroom from './components/CreateClassroom';
+import Adminpanal from './components/Adminpanal';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -24,6 +25,7 @@ root.render(
         <Route path="/nftPage/:tokenId" element={<NFTPage />}/>        
         <Route path="/profile" element={<Profile />}/> 
         <Route path="/createClassroom" element={<CreateClassroom />}/>
+        <Route path="/classroom/admin/:roomId" element={<Adminpanal />}/>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
