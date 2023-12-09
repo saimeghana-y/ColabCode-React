@@ -6,12 +6,14 @@ import { useState } from "react";
 import NFTTile from "./NFTTile";
 
 export default function Profile () {
+    console.log("Profile");
     const [data, updateData] = useState([]);
     const [dataFetched, updateFetched] = useState(false);
     const [address, updateAddress] = useState("0x");
     const [totalPrice, updateTotalPrice] = useState("0");
 
     async function getNFTData(tokenId) {
+        console.log("Getting NFTs");
         const ethers = require("ethers");
         let sumPrice = 0;
         //After adding your Hardhat network to your metamask, this code will get providers and signers
@@ -29,6 +31,7 @@ export default function Profile () {
         * Below function takes the metadata from tokenURI and the data returned by getMyNFTs() contract function
         * and creates an object of information that is to be displayed
         */
+       console.log("Got all NFTs", transaction);
         
         const items = await Promise.all(transaction.map(async i => {
             const tokenURI = await contract.tokenURI(i.tokenId);
@@ -48,7 +51,7 @@ export default function Profile () {
             sumPrice += Number(price);
             return item;
         }))
-
+console.log("Items", items);
         updateData(items);
         updateFetched(true);
         updateAddress(addr);

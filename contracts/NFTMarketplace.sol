@@ -16,7 +16,7 @@ contract NFTMarketplace is ERC721URIStorage {
     //owner is the contract address that created the smart contract
     address payable owner;
     //The fee charged by the marketplace to be allowed to list an NFT
-    uint256 listPrice = 0.01 ether;
+    uint256 listPrice = 0.0001 ether;
 
     //The structure to store info about a listed token
     struct ListedToken {
@@ -130,6 +130,7 @@ contract NFTMarketplace is ERC721URIStorage {
     
     //Returns all the NFTs that the current user is owner or seller in
     function getMyNFTs() public view returns (ListedToken[] memory) {
+        console.log("Inside getMyNFTs");
         uint totalItemCount = _tokenIds.current();
         uint itemCount = 0;
         uint currentIndex = 0;
@@ -141,7 +142,7 @@ contract NFTMarketplace is ERC721URIStorage {
                 itemCount += 1;
             }
         }
-
+        console.log("itemCount is %s", itemCount);
         //Once you have the count of relevant NFTs, create an array then store all the NFTs in it
         ListedToken[] memory items = new ListedToken[](itemCount);
         for(uint i=0; i < totalItemCount; i++) {
@@ -152,6 +153,7 @@ contract NFTMarketplace is ERC721URIStorage {
                 currentIndex += 1;
             }
         }
+        console.log("Returning items");
         return items;
     }
 
